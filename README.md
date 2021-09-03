@@ -4,9 +4,9 @@
 
 >저렴한 아두이노와 가스센서,온도센서를 사용해 불이 난 것을 파악하고 wifi통신센서를 통해 사용자의 어플리케이션에 알람을 어플리케이션
 
-## 아이디어를 생각한 계기
+### Motivation/ 계기
 
->청각에 불편함을 겪는 화재 경보 알림 소리를 듣지 못해 발생하는 사고에 관한 기사를 자주 접했습니다.
+>청각에 불편함을 겪는 화재 경보 알림 소리를 듣지 못해 발생하는 사고에 관한 기사를 자주 접함
 >>[관련 기사 1](https://www.cctoday.co.kr/news/articleView.html?idxno=2074577#:~:text=8%EC%9D%BC%20%ED%95%9C%EA%B5%AD%20%EB%86%8D%EC%95%84%EC%9D%B8%ED%98%91%ED%9A%8C,%EB%A7%8C%202000%EC%97%AC%20%EB%AA%85%EC%9D%B4%EB%8B%A4.&text=2%EB%85%84%20%EC%A0%84%EC%97%90%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1,%EC%9D%B4%EB%A5%B4%EB%8A%94%20%EC%82%AC%ED%83%9C%EA%B0%80%20%EB%B0%9C%EC%83%9D%ED%96%88%EB%8B%A4.)
 >>
 >>[관련 기사 2](http://www.safetimes.co.kr/news/articleView.html?idxno=60982)
