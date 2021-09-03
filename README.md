@@ -4,7 +4,8 @@
 
 >저렴한 아두이노와 가스센서,온도센서를 사용해 불이 난 것을 파악하고 wifi통신센서를 통해 사용자의 어플리케이션에 알람을 어플리케이션
 >
->![image](https://user-images.githubusercontent.com/48480825/132043622-6a7a5524-a96c-4c99-92cd-39cf4614df91.png)
+><img src="https://user-images.githubusercontent.com/48480825/132045460-fc82d519-7fff-4ccd-bb7d-6e91655dc1f6.png"  width="400" height="400">
+
 
 
 ### Motivation/ 계기
