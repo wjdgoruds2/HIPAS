@@ -3,6 +3,9 @@
 **[👂🔥청각장애인을 위한 화재경보알림 어플리케이션👂🔥]**  
 
 >저렴한 아두이노와 가스센서,온도센서를 사용해 불이 난 것을 파악하고 wifi통신센서를 통해 사용자의 어플리케이션에 알람을 어플리케이션
+>
+>![image](https://user-images.githubusercontent.com/48480825/132043622-6a7a5524-a96c-4c99-92cd-39cf4614df91.png)
+
 
 ### Motivation/ 계기
 
@@ -51,10 +54,12 @@
 
 Add additional notes about how to deploy this on a live system / 라이브 시스템을 배포하는 방법
 
-## Built With / 누구랑 만들었나요?
+## Built With / 팀원
 
-* [이름](링크) - 무엇 무엇을 했어요
-* [Name](Link) - Create README.md
+* [황동현] - DB, 어플리케이션 총괄
+* [박지환] - 통신 담당, LED알림 부분 개발
+* [정해경] - 어플리케이션 UI, 아두이노 가스센서 인식 부분 개발
+* [황준해] - 설계도 작성, 아두이노 열 센서 인식 부분 개발
 
 ## Awards / 수상
 
