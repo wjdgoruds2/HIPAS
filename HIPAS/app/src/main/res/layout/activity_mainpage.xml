@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    xmlns:andorid="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.hipas.MainpageActivity">
+
+    <LinearLayout
+        android:id="@+id/userInfo"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/changeinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="정보 수정"
+            android:textColor="#ffffff"
+            android:background="#00ff0000">
+        </Button>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="로그아웃"
+            android:textColor="#ffffff"
+            android:background="#00ff0000">
+        </Button>
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        andorid:srcCompat="@drawable/logo2"
+        android:id="@+id/logo"
+        android:layout_marginBottom="250dp"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ffffff"
+        android:layout_gravity = "center"
+        android:id="@+id/horizon1"
+        android:layout_marginTop = "300dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:id="@+id/temp_Linear"
+        android:layout_below="@+id/horizon1"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center"
+            andorid:srcCompat="@drawable/temp"/>
+
+        <Button
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="온도 확인"
+            android:textSize="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:textColor= "#ffffff"
+            android:background="#00ff0000"
+            android:src="@drawable/temp"
+
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity = "center"
+        android:layout_below="@+id/temp_Linear"
+        android:id="@+id/horizon2"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_below="@+id/horizon2"
+        android:id="@+id/gas_Linear"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center"
+            andorid:srcCompat="@drawable/gas"/>
+
+        <Button
+            android:id="@+id/gas"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="가스 확인"
+            android:textSize="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:textColor= "#ffffff"
+            android:background="#00ff0000"
+            />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_gravity = "center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/horizon3"
+        android:layout_below="@+id/gas_Linear"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_below="@+id/horizon3"
+        android:id="@+id/led_Linear"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            andorid:srcCompat="@drawable/led"/>
+
+        <Button
+            android:id="@+id/led"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="LED 점검"
+            android:textSize="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:textColor= "#ffffff"
+            android:background="#00ff0000"
+            android:layout_below="@+id/horizon3"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_marginLeft = "20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/led_Linear"
+        />
+
+</RelativeLayout>

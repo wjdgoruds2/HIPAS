@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "964154846951",
+    "firebase_url": "https://hipas-bd404.firebaseio.com",
+    "project_id": "hipas-bd404",
+    "storage_bucket": "hipas-bd404.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964154846951:android:dc403cceaa76ab73e4bc42",
+        "android_client_info": {
+          "package_name": "com.example.hipas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964154846951-msngidplda4h26oshijukmup2v2on7gd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hipas",
+            "certificate_hash": "f1d754894d44ad25e95b9abf9b56e64041cbd991"
+          }
+        },
+        {
+          "client_id": "964154846951-30u8p47ruvorn0aacui4340gamk78qmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwZXw6V137_-BdpJYcptYOU4euZCR8cjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964154846951-30u8p47ruvorn0aacui4340gamk78qmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/logo2"
+        android:id="@+id/logo"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/Create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="setting up things..."
+            android:textColor="#ffffff"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/wolf"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+        <ProgressBar
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0022ff"
+            android:textSize="19dp"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="350dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-05dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="610dp"
+                android:drawablePadding="16dp"
+                android:gravity="center"
+                android:hint="FROM HIPAS"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="#fff"
+                android:textColorHint="#FFFAFA"
+                android:textSize="40dp"></TextView>
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
