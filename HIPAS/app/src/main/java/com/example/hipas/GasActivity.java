@@ -1,107 +1,100 @@
 package com.example.hipas;
 
+import android.graphics.Color;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.graphics.Color;
-import java.util.ArrayList;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class GasActivity extends AppCompatActivity {
-    LineChart chart;
-    int X_RANGE = 50;
-    int DATA_RANGE = 30;
-    ArrayList<Entry> xVal;
-    LineDataSet setXcomp;
-    ArrayList<String> xVals;
-    ArrayList<ILineDataSet> lineDataSets;
-    LineData lineData;
 
-    private void init(){
-        chart = (LineChart)findViewById(R.id.chart);
-        chartInit();
-    }
+    private LineChart lineChart;
 
-    private void chartInit(){
-        chart.setAutoScaleMinMaxEnabled(true);
-        xVal = new ArrayList<Entry>();
-        setXcomp = new LineDataSet(xVal, "X");
-        setXcomp.setColor(Color.RED);
-        setXcomp.setDrawValues(false);
-        setXcomp.setDrawCircles(false);
-        setXcomp.setAxisDependency(YAxis.AxisDependency.LEFT);
-        lineDataSets = new ArrayList<ILineDataSet>();
-        lineDataSets.add(setXcomp);
-
-        xVals = new ArrayList<String>();
-        for(int i=0;i<X_RANGE;i++){
-            xVals.add("");
-        }
-        lineData = new LineData(xVals,lineDataSets);
-        chart.setData(lineData);
-        chart.invalidate();
-    }
-
-    public void chartUpdate(int x){
-        if(xVal.size()>DATA_RANGE){
-            xVal.remove(0);
-            for(int i=0;i<DATA_RANGE;i++){
-                xVal.get(i).setXIndex(i);
-            }
-        }
-        xVal.add(new Entry(x,xVal.size()));
-        setXcomp.notifyDataSetChanged();
-        chart.notifyDataSetChanged();
-        chart.invalidate();
-    }
-
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg){
-            if(msg.what ==0){
-                int a =0;
-                //a : 새로운 데이터
-                a = (int)(Math.random()*100);
-                chartUpdate(a);
-            }
-        }
-    };
-
-    class MyThread extends Thread{
-        @Override
-        public  void run(){
-            while(true){
-                handler.sendEmptyMessage(0);
-                try{
-                    //업데이트
-                    Thread.sleep(100);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-    private void threadStart(){
-        MyThread thread = new MyThread();
-        thread.setDaemon(true);
-        thread.start();
-    }
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        init();
-        threadStart();
-    }
+        setContentView(R.layout.activity_gas);
 
+
+
+
+        // json 연동
+        String test = "https://scv0319.cafe24.com/hipas/getGas.php";
+        URLConnector task = new URLConnector(test);
+
+        ArrayList<String> xAXES = new ArrayList<>();
+        ArrayList<Entry> yAXES = new ArrayList<>();
+
+        task.start();
+
+        try {
+            task.join();
+            System.out.println("waiting... for result");
+        } catch (InterruptedException e) {
+
+        }
+
+        String result = task.getResult();
+
+        try {
+            JSONObject root = new JSONObject(result);
+            JSONArray ja = root.getJSONArray("webnautes");
+
+            for (int i = 0; i < ja.length(); i++) {
+                JSONObject week = ja.getJSONObject(i);
+                String Nowtime = week.getString("Nowtime");
+                int Gas = week.getInt("Gas");
+                yAXES.add(new Entry(Gas, i));
+                xAXES.add(i, Nowtime); //x축의 값을 저장합니다.
+            }
+        }  catch(JSONException e){
+            e.printStackTrace();
+        }
+        String[] xaxes = new String[xAXES.size()];
+        for(int i=0; i < xAXES.size(); i++){
+            xaxes[i] = xAXES.get(i).toString(); // 아래그림의 동그란 부분에 표시되는 x축 값.
+        }
+        // 그래프
+        lineChart = findViewById(R.id.chart);
+        ArrayList<LineDataSet> lineDataSets = new ArrayList<>();
+
+//아래 그림의 파란색 그래프
+        LineDataSet lineDataSet = new LineDataSet(yAXES, "Gas");
+        lineDataSet.setDrawCircles(false);
+        lineDataSet.setColor(Color.BLACK);
+        lineDataSets.add(lineDataSet);
+        lineDataSet.setLineWidth(3);
+
+        XAxis xAxis = lineChart.getXAxis(); // x 축 설정
+        xAxis.setDrawLabels(true); //X축의 데이터를 최대 몇개 까지 나타낼지에 대한 설정 5개 force가 true 이면 반드시 보여줌
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); //x 축 표시에 대한 위치 설정
+
+        lineChart.getAxisLeft().setStartAtZero(false);
+        YAxis yAxis = lineChart.getAxisLeft();
+        yAxis.setAxisMaxValue(200);
+        yAxis.setAxisMinValue(0);
+
+        YAxis yAxisRight = lineChart.getAxisRight(); //Y축의 오른쪽면 설정
+        yAxisRight.setDrawLabels(false);
+        yAxisRight.setDrawAxisLine(false);
+        yAxisRight.setDrawGridLines(false);
+
+        lineChart.setBackgroundColor(Color.WHITE);
+        lineChart.getXAxis().setSpaceBetweenLabels(1);
+        lineChart.setData(new LineData(xaxes,lineDataSets));
+        lineChart.setDescription(null);
+        lineChart.setVisibleXRangeMaximum(65f);
+    }
 }
