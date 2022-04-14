@@ -65,7 +65,7 @@ int printGas(){
 }
 int printTemperature(DeviceAddress deviceAddress)
 {
-    int tempC = sensors.getTempC(deviceAddress);
+    int tempC = sensors.getTempC(deviceAddress); //온도의 값을 가져옴
     return tempC;
 }
 
@@ -127,7 +127,7 @@ void loop(void)
     else{
       danger = 0;
     }
-    sensors.requestTemperatures(); // Send the command to get temperatures
+    sensors.requestTemperatures(); // Send the command to get temperatures(온도 값 요청)
     String phpHost = host+"/sensor.php?temp="+temp+"&gas="+gas+"&danger="+danger;
     String phpHost2 = host+"/getLed.php";
     //Serial.println(phpHost);
